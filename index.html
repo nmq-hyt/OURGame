@@ -28,6 +28,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-functions.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+    <script src="together.js"
     <script defer>
 
      const firebaseConfig = {
@@ -47,9 +48,11 @@
      let games_ref = db.ref('/games');
      let deck_ref = db.ref('/decks/');
 
-
+     // writes to database
+     // last part of the returned string contains the number of players as the last char in the string
 function init_game (number_players) {
-    let new_game_entry = games_ref.push();
+         let new_game_entry = games_ref.push();
+         let numb = number_players.toString();
     let reg_backslash = RegExp("/");
     let game_ref = new_game_entry.toString().split(reg_backslash).pop();
 
@@ -161,12 +164,14 @@ function init_game (number_players) {
         });
              break;
      }
-         return game_ref
+         return (game_ref.concat(numb))
 }
 // add_player is best used to configure what skin a player will choose
 // at the selection screen
 
-function add_player (game,p_number,skin) {
+     function add_player (game,p_number,skin) {
+         let lengthref = (game.length - 1);
+         game = game.substring(0,lengthref);
          let game_ref = db.ref('/games' + game + '/' + 'players/' + 'player_' + p_number);
          let player_data = {
              player_skin : skin
@@ -177,7 +182,9 @@ function add_player (game,p_number,skin) {
 
         function start_game(game) {
         // this assumes that all players have had
-        // their skins selected
+            // their skins selected
+            let lengthref = (game.length - 1);
+            game = game.substring(0,lengthref);
         let game_ref = db.ref("/games/" + game.toString());
         let gamestate_ref = game_ref.child("gameState/state");
         gamestate_ref.set("in_progress");
@@ -187,17 +194,21 @@ function add_player (game,p_number,skin) {
         
              }
 
-             function run_game(game) {
+     function run_game(game) {
+         let lengthref = (game.length - 1);
+         let playernumb = game.charAt(lengthref +1);
+         game = game.substring(0,lengthref);
         game.get().then((value) => {
             // here is essentially the entirety of how the game should run.
-            // from here on, we need to link the DOM elements thatmdisplay information to the infromation rerieved within  "value"
+            // from here on, we need to link the DOM elements that display information to the infromation rerieved within  "value"
 
             // WHAT WE NEED:
             // Every relevant players health, shield, armor, deck, card_hand, energy
             // howewver they are displayed in the DOCUMENT
             // every method which works on the above, allowing us to operate the game
             // the doms of the ui buttons which allow the player to play the game
-            // at the end we we write 
+            // at the end we we write
+            // game over boolean: received by the back  end, stating that the game has finished
                  });
              }
      function end_game () {
