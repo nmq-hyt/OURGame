@@ -16,11 +16,13 @@ class player {
     player_health : number;
     player_shield : number;
     player_deck : deck;
+    player_energy : number;
     constructor (player_number : number, player_skin : string) {
         this.player_number = player_number;
         this.player_skin = player_skin;
         this.player_health = 10;
         this.player_shield = 0;
+        this.player_energy = 0;
     }
 }
 
