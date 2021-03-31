@@ -1,0 +1,99 @@
+<!doctype HTML>
+
+<html>
+    <head>
+        <title>
+
+        </title>
+
+         <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'/> 
+         <link rel='stylesheet' href='RulesStyles.css' />
+        <style>
+            
+        </style>
+        <script>
+            
+        </script>
+    </head>
+    <Body>
+
+        <!-- Title Card-->
+        <div class="container">
+            <div class="card bg-dark">
+                <div class="PageTitle">
+                    <div class ="col-md-3">
+                        <!-- buffer columns to keep text centered-->
+                    </div>
+                    <div class ="col-md-6";>
+                        <h3>
+                        Game Rules
+                        </h3>
+                    </div>
+                    <div class ="col-md-3">
+                        <!-- buffer columns to keep text centered-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- rules -->
+        <div class="container">
+            <div class="card bg-dark">
+                <div class="PageTitle">
+                    <div class ="col-md-3">
+                        <!-- buffer columns to keep text centered-->
+                    </div>
+                    <div class ="col-md-6";>
+                        <h4>
+                        Game Rules
+                        </h4>
+                        <br>
+                        <p id="rules">
+
+                            1.0
+
+                            Each player starts with 10 hp
+                            Each player starts with 1 energy per round,
+                            Energy must be spent by playing a card.(turn cannot be skiped even if the card played would do nothing)
+                            Turn begins with drawing 1 card from there deck,
+                            If the deck is empty the discard pile is shuffled and is placed on the deck spot,
+                            All cards cost one energy.
+
+                            A card is read from top down,
+                            Attack: pick an opponent and deal one damage, (multi opponents can be chose when more than one attack a card)
+                            Health: Regain 1 hp for each icon.
+                            Draw: draw one card form the deck for each icon,
+                            Energy: gain one energy for each icon on the crad.
+                            Shield/defended: the card is placed in front of the player and is able to take a hit for each shield icon on the card.
+                            Any damage dealt to a player with a shield will damage the shield instead. 
+                            If you can still attack after a shield is broken the rest is taken by the player.
+                            Once a shield card is used up (all shield on card have been damaged) the card goes to the discard pile.
+
+                            Start of the game you draw 4 cards to start,
+                            On a player you draw a card,
+                            If a player runs out of cards in hand they draw 2 cards immediately,
+
+                            Game first player can start randomly(could have a dice roll on screen to determine)
+                            Hp cannot go over 10,
+
+
+                        </p>
+                    </div>
+                    <div class ="col-md-3">
+                        <!-- buffer columns to keep text centered-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="/__/firebase/8.0.2/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+   <script src="/__/firebase/8.0.2/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    </Body>
+</html>

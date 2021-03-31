@@ -1,0 +1,101 @@
+<!doctype HTML>
+
+<html>
+    <head>
+        <title>
+
+        </title>
+        <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' /> 
+        <link rel="stylesheet" href="CharSelStyles.css" /> 
+        
+        <style>
+
+        </style>
+        <script>
+
+            /*function for the user to choose a deck, confirm it and communicate with server end */
+            function deckSelect(){
+
+                var chosenDeck = false;
+                var chosenDeck = confirm("Are you sure you would like to use this deck?");
+                
+                if(chosenDeck == true) { 
+                    alert("Deck selected")
+
+                    
+                }
+
+                if(chosenDeck == false) {
+                    alert("Please choose again")
+                } 
+                
+                /*code to communicate with server and confirm a deck to each user to go here*/
+                
+            }
+
+            /*function for testing clickable elements*/
+            function test(){
+                
+                alert("test successful")
+
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <!-- Title Card-->
+        <div class="container">
+            <div class="card bg-dark">
+                <div class="PageTitle">
+                    <div class ="col-md-3">
+                        <!-- buffer columns to keep text centered-->
+                    </div>
+                    <div class ="col-md-6";>
+                        <h3>
+                         Chaos Cards
+                        </h3>
+                    </div>
+                    <div class ="col-md-3">
+                        <!-- buffer columns to keep text centered-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--instructions to select character-->
+        <div class="container">
+            <div class="card">
+                <div class="instructions">
+                    Select your character by clicking on one of the images below!
+
+                    If a character has already been chosen it will be greyed out and unavailable
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="card">
+                <div class="characterCard">
+                    <div class="col-md-1">
+                        <!--buffer columns for centering-->
+                    </div>
+                    <div class="col-md-10">
+                        
+                            <img id="Deck1" src="Placeholder.jpg" style="height:300px; width:200px;" onclick=deckSelect();>
+                            <img id="Deck2" src="Placeholder.jpg" style="height:300px; width:200px;" onclick=deckSelect();>
+                            <img id="Deck3" src="Placeholder.jpg" style="height:300px; width:200px;" onclick=deckSelect();>
+                            <img id="Deck4" src="Placeholder.jpg" style="height:300px; width:200px;" onclick=deckSelect();>
+                    </div>
+                    <div class="col-md-1">
+                        <!--buffer columns for centering-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="/__/firebase/8.0.2/firebase-app.js"></script>
+        <script src="/__/firebase/init.js"></script>
+    </body>
+</html>
