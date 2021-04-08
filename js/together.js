@@ -58,22 +58,51 @@ var player = /** @class */ (function () {
         this.player_health = health;
         this.player_energy = 0;
         this.player_shield = 0;
+        this.player_deck = [];
     }
     player.prototype.set_player_skin = function (player, skin) {
         player.player_skin = skin;
         return null;
     };
     //still unsure how to fully implement this
-    player.prototype.add_card_to_deck = function (c) {
-        this.player_deck.push(c);
-    };
     player.prototype.add_deck = function (deck_num) {
         var _this = this;
         handout = firebase.functions().httpsCallable('handout_deck');
         handout(deck_num)
             .then(function (result) {
-                _this.player_deck = result;
-        });
+                temp = Object.values(result)[0];
+                tempArray = new Array(20);
+                tempArray[0] = new card(temp.c1);
+                tempArray[1] = new card(temp.c2);
+                tempArray[2] = new card(temp.c3);
+                tempArray[3] = new card(temp.c4);
+                tempArray[4] = new card(temp.c5);
+                tempArray[5] = new card(temp.c6);
+                tempArray[6] = new card(temp.c7);
+                tempArray[7] = new card(temp.c8);
+                tempArray[8] = new card(temp.c9);
+                tempArray[9] = new card(temp.c10);
+                tempArray[10] = new card(temp.c11);
+                tempArray[11] = new card(temp.c12);
+                tempArray[12] = new card(temp.c13);
+                tempArray[13] = new card(temp.c14);
+                tempArray[14] = new card(temp.c15);
+                tempArray[15] = new card(temp.c16);
+                tempArray[16] = new card(temp.c17);
+                tempArray[17] = new card(temp.c18);
+                tempArray[18] = new card(temp.c19);
+                tempArray[19] = new card(temp.c20);
+                j = 0;
+                // the fisher-yates shuffle
+                for (i = 0; i < 20; i++) {
+                    j = Math.floor(Math.random() * 20);
+                    temp2 = tempArray[i];
+                    tempArray[i] = tempArray[j];
+                    tempArray[j] = temp2;
+                }
+
+                _this.player_deck = tempArray; 
+            });
     };
     player.prototype.add_neighbour = function (player) {
         neighbours.push(player); 
@@ -84,16 +113,15 @@ var player = /** @class */ (function () {
     player.prototype.energy = function (amount) {
         if (((this.player_energy + amount % 30)) == 0) {
             this.player_energy = 30;
-        }
-        else {
+        }    else {
             this.player_energy += amount;
         }
     };
     //change draw slightly so I could rationalize it
     player.prototype.draw = function (amount) {
+        // hand limit?
         while (amount != 0) {
-            this.player_hand.push(this.player_deck[this.player_deck.length - 1]);
-            this.player_deck.pop();
+            this.player_hand.push(this.player_deck.pop());
             amount--;
         }
     };
@@ -123,29 +151,47 @@ var player = /** @class */ (function () {
             this.player_shield = 0;
        }
     };
+    player.prototype.play_card = function (action_num,card,target) {
+        switch (action_num) {
+        case 0:
+            player.damage(target,card.card_dmg_val,target);
+        case 1:
+            player.heal(card.card_heal_val);
+        case 2:
+            player.energy(card.card_energy_val);
+        case 3:
+            player.shield(card.card_shield_val);
+        case 4:
+            player.draw(card.card_draw_val);
+        }
+    }
     return player;
 }());
 
 
 var card = /** @class */ (function () {
-    function card(card_id, card_dmg_val, card_heal_val, card_energy_val, card_shield_val, card_draw_val) {
-        this.card_id = card_id;
-        this.card_dmg_val = card_dmg_val;
-        this.card_heal_val = card_heal_val;
-        this.card_energy_val = card_energy_val;
-        this.card_shield_val = card_shield_val;
-        this.card_draw_val = card_draw_val;
+    function card(card_object) {
+        keys = Object.keys(card_object);
+        values = Object.values(card_object);
+        length = keys.length;
+        for (i = 0; i < length; i++){
+            if (keys[i] === "attack" ) {
+                this.card_dmg_val = values[i];
+             } else if (keys [i] === "shield") {
+                this.card_shield_val = values[i];
+             } else if (keys [i] === "energy") {
+                this.card_energy_val = values[i];
+             } else if (keys [i] === "draw") {
+                this.card_draw_val = values[i];
+             } else if (keys [i] === "heal") {
+                 this.card_heal_val = values[i];
+             }
+        }
     }
     return card;
 }());
 function add_player_to_gamestate(add_player) {
     this.players.push(add_player);
-}
-function add_card_to_deck(add_card) {
-    this.cards.push(add_card);
-}
-function assign_deck_to_player(add_deck) {
-    this.player_deck = add_deck;
 }
 // code control
 // accepts a gamestate, and a player
