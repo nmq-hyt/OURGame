@@ -1,4 +1,3 @@
-
 const firebaseConfig = {
     apiKey: "AIzaSyBynxk4Jce8wObcpwfL_ngvV2IVaBmQvFY",
     authDomain: "ourgame-fdad7.firebaseapp.com",
@@ -111,16 +110,11 @@ var player = /** @class */ (function () {
         target.take_damage(amount);
     };
     player.prototype.energy = function (amount) {
-        if (((this.player_energy + amount % 30)) == 0) {
-            this.player_energy = 30;
-        }    else {
-            this.player_energy += amount;
-        }
+        this.player_energy += amount;
     };
-    //change draw slightly so I could rationalize it
+    
     player.prototype.draw = function (amount) {
-        // hand limit?
-        while (amount != 0) {
+        while (amount != 0 || this.player_hand.length <= 8) {
             this.player_hand.push(this.player_deck.pop());
             amount--;
         }
@@ -151,23 +145,29 @@ var player = /** @class */ (function () {
             this.player_shield = 0;
        }
     };
+
     player.prototype.play_card = function (action_num,card,target) {
-        switch (action_num) {
-        case 0:
-            player.damage(target,card.card_dmg_val,target);
-        case 1:
-            player.heal(card.card_heal_val);
-        case 2:
-            player.energy(card.card_energy_val);
-        case 3:
-            player.shield(card.card_shield_val);
-        case 4:
-            player.draw(card.card_draw_val);
+        if(this.player_energy > 0){
+            this.player_energy--;
+            switch (action_num) {
+            case 0:
+                player.damage(target,card.card_dmg_val,target);
+            case 1:
+                player.heal(card.card_heal_val);
+            case 2:
+                player.energy(card.card_energy_val);
+            case 3:
+                player.shield(card.card_shield_val);
+            case 4:
+                player.draw(card.card_draw_val);
+            }
         }
+       else{
+           return null;
+       }
     }
     return player;
 }());
-
 
 var card = /** @class */ (function () {
     function card(card_object) {
@@ -190,6 +190,7 @@ var card = /** @class */ (function () {
     }
     return card;
 }());
+
 function add_player_to_gamestate(add_player) {
     this.players.push(add_player);
 }
