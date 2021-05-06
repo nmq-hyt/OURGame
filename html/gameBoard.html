@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <title> Chaos Critters </title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+
+        <link rel="stylesheet" href="CharSelStyles.css" /> 
+
+
+    <body>
+        <!-- enemy area-->
+        <div class="container-fluid">
+            <div class="card bg-dark">
+                <div class="PageTitle">
+                    <div class="row show-grid">
+                        <div class ="col-md-3";>
+                            <h3>
+                            </h3>
+                        </div>
+                        <div class ="col-md-2";>
+                            <img src="cardback.png" style="height:auto; width:120px; transform: rotate(270deg);">
+                            <p id="deck_1" style="font-size: 30px; position: absolute; left: 150px; top: 60px; color:aliceblue">
+                                                          </p>
+                        </div>
+                        <div class ="col-md-2";>
+                            <img src="Vectorpro.png" id="topPortrait" style="height:autopx; width:170px;">
+                        </div>
+                        <div class ="col-md-1";>
+                            <img src="sheild.png" style="height:100px; width:100px;">
+                            <p id="armor_1" style=" position: absolute; left: 80px; top: 35px; color:aliceblue">1
+                                <script>
+                                </script>
+                            </p>
+                        </div>
+                        <div class ="col-md-1";>
+                            <img src="Heart.png" style="height:100px; width:100px;">
+                            <p id="health_1"style=" position: absolute; left: 80px; top: 35px; color:aliceblue">1
+                            </p>
+                        </div>
+                        <div class ="col-md-1";>
+                            <img src="energy.png" style="height:100px; width:100px;">
+                            <p id="energy_1"style=" position: absolute; left: 70px; top: 35px; color:rgb(15, 16, 17)">1
+                            </p>
+                        </div> 
+                        <div class ="col-md-2";>
+                            <h3>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--battlefield 1-->
+        <div class="container-fluid">
+            <div class="card">
+                <img class="card-img" src="CardArea.jpg" style="height:315px">
+                <div class="card-img-overlay">
+                    <div id="battle_1" class ="row">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!--battlefield 2-->
+        <div class="container-fluid">
+            <div class="card">
+                <img class="card-img " src="CardArea.jpg" style="height:315px">
+                <div class="card-img-overlay">
+                    <div id="battle_2" style="height: 285px" class ="row align-items-start gx-5">
+
+                        <div style="height: inherit" class ="col-pd-5">
+                            <button style="height: inherit; width: 170px"class="btn btn-primary" id ="card_1" data-toggle="modal" data-target="#test"></button>
+                        </div>
+                        <div style="height: inherit" class ="col-pd-5">
+                            <button  style="height: inherit; width: 170px"class="btn btn-primary" id ="card_2" data-toggle="modal" data-target="#test"></button>
+                        </div> 
+                        <div style="height: inherit"class ="col-pd-5">
+                            <button  style="height: inherit; width: 170px"class="btn btn-primary" id ="card_3" data-toggle="modal" data-target="#test"></button>
+                        </div>
+                        <div style="height: inherit"class ="col-pd-5">
+                            <button  style="height: inherit; width: 170px"class="btn btn-primary" id ="card_4" data-toggle="modal" data-target="#test"></button>
+                        </div>
+                        <div style="height: inherit"class ="col-pd-5">
+                            <button  style="height: inherit; width: 170px"class="btn btn-primary" id ="card_5" data-toggle="modal" data-target="#test"></button>
+                        </div>
+                        <div style="height: inherit"class ="col-pd-5">
+                            <button style="height: inherit; width: 170px" class="btn btn-primary" id ="card_6" data-toggle="modal" data-target="#test"></button>
+                        </div>
+                        <div style="height: inherit"class ="col-pd-5">
+                            <button style="height: inherit; width: 170px" class="btn btn-primary" id ="card_7" data-toggle="modal" data-target="#test"></button>
+                        </div>
+                        <div style="height: inherit"class ="col-pd-5">
+                            <button  style="height: inherit; width: 170px"class="btn btn-primary" id ="card_8" data-toggle="modal" data-target="#test"></button>
+                        </div>
+                        <div style="height: inherit"class ="col-pd-5">
+                            <button style="height: inherit; width: 170px" class="btn btn-primary" id ="card_9" data-toggle="modal" data-target="#test"></button>
+                        </div>
+                        <div style="height: inherit"class ="col-pd-5">
+                            <button style="height: inherit; width:170px"class="btn btn-primary" id ="card_10"data-toggle="modal" data-target="#test"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- player area-->
+        <div class="container-fluid">
+            <div class="card bg-dark">
+                <div class="PageTitle">
+                    <div class="row show-grid">
+                        <div class ="col-md-3";>
+                            <h3>
+                            </h3>
+                        </div>
+                        <div class ="col-md-2";>
+                            <img src="cardback.png" style="height:autopx; width:170px;transform: rotate(270deg);">
+                            <p id ="deck_2" style="font-size:35px ; position: absolute; left: 140px; top: 80px; color:aliceblue"></p>
+                                <script>
+                                </script>
+                            </p>
+                        </div>
+                        <div class ="col-md-2";>
+                            <img src="chillipro.png" id="bottomPortrait" style="height:auto; width:210px;" onclick="playerSwap()">
+                        </div>
+                        <div class ="col-md-1";>
+                            <img src="sheild.png" style="height:100px; width:100px;">
+                            <p id ="armor_2"style=" position: absolute; left: 80px; top: 35px; color:aliceblue">1
+                                <script>
+                                </script>
+                            </p>
+                        </div>
+                        <div class ="col-md-1";>
+                            <img src="Heart.png" style="height:100px; width:100px;">
+                            <p id="health_2" style=" position: absolute; left: 80px; top: 35px; color:aliceblue" id="healthScript2">1
+                            </p>
+                        </div>
+                        <div class ="col-md-1";>
+                            <img src="energy.png" style="height:100px; width:100px;">
+                            <p id="energy_2" style=" position: absolute; left: 70px; top: 35px; color:rgb(15, 16, 17)">1
+                            </p>
+                        </div> 
+
+                        <div class ="col-md-2";>
+                            <h3>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="test">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Choose card action</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">Cancel</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Please choose an action!</p>
+                    </div>
+                    <div>
+                        <button id="damage" type="button" class="btn btn-primary">Damage</button>
+                        <button id="heal" type="button" class="btn btn-primary">Healing </button>
+                        <button id="energy" type="button" class="btn btn-primary">Energy</button>
+                        <button id="shield" type="button" class="btn btn-primary">Shield</button>
+                        <button id="draw" type="button" class="btn btn-primary">Draw</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-functions.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+            <script src="together.js"></script>
+            <script >
+             
+
+             let player_1 = null;
+             let player_2 = null;
+             let player_3 = null;
+             let player_4 = null;
+             let internal_gamestate = null;
+             let db = firebase.database();
+             let functions = firebase.functions();
+             // this is not the actual root of the database tree
+             // but for our purposes it isA
+             let games_ref = db.ref('/games');
+             let deck_ref = db.ref('/decks/');
+             let health_1 = document.getElementById("health_1");
+             let health_2 = document.getElementById("health_2");
+             let energy_1 = document.getElementById("energy_1");
+             let energy_2 = document.getElementById("energy_2");
+             let armor_1 = document.getElementById("armor_1");
+             let armor_2 = document.getElementById("armor_2");
+             let deck_1 = document.getElementById("deck_1");
+             let deck_2 = document.getElementById("deck_2");
+             let card_1 = document.getElementById("card_1");
+             let card_2 = document.getElementById("card_2");
+             let card_3 = document.getElementById("card_3");
+             let card_4 = document.getElementById("card_4");
+             let card_5 = document.getElementById("card_5");
+             let card_6 = document.getElementById("card_6");
+             let card_7 = document.getElementById("card_7");
+             let card_8 = document.getElementById("card_8");
+             let card_9 = document.getElementById("card_9");
+             let card_10 = document.getElementById("card_10");
+             let card_hand = [];
+             card_hand[0] = card_1;
+             card_hand[1] = card_2;
+             card_hand[2] = card_3;
+             card_hand[3] = card_4;
+             card_hand[4] = card_5;
+             card_hand[5] = card_6;
+             card_hand[6] = card_7;
+             card_hand[7] = card_8;
+             card_hand[8] = card_9;
+             card_hand[9] = card_10;
+             let card_choice = 0;
+             let choice_1 = document.getElementById("damage");
+             let choice_2 = document.getElementById("heal");
+             let choice_3 = document.getElementById("energy");
+             let choice_4 = document.getElementById("shield");
+             let choice_5 = document.getElementById("draw");
+
+
+             function set_card_choice (num) {
+                 card_choice = num;
+                 console.log(card_choice);
+             }
+
+
+             function setup_game_objects(player_number) {
+                 internal_gamestate = new gamestate(localStorage.getItem("game_ref"),player_number);
+                 switch (parseInt(player_number)) {
+                     case 2:
+                         player_1 = new player(1,10,1);
+                         player_2 = new player(2,10,1);
+                         player_1.add_neighbour(player_2);
+                         player_2.add_neighbour(player_1);
+                         player_1.add_deck("d1");
+                         player_2.add_deck("d1");
+
+                         internal_gamestate.add_player_to_gamestate(player_1);
+                         internal_gamestate.add_player_to_gamestate(player_2);
+                         player_1.draw(4);
+                         let temp = internal_gamestate.flip_coin();
+                         internal_gamestate.current_player = internal_gamestate.players[temp];
+
+                         break;
+                     case 3:
+                         player_1 = new player(1,10,2);
+                         player_2 = new player(2,10,2);
+                         player_3 = new player(3,10,2);
+                         player_1.add_neighbour(player_2,player_3);
+                         player_2.add_neighbour(player_1,player_3);
+                         player_3.add_neighbour(player_2,player_1);
+                         internal_gamestate.add_player_to_gamestate(player_1);
+                         internal_gamestate.add_player_to_gamestate(player_2);
+                         internal_gamestate.add_player_to_gamestate(player_3);
+                         break;
+                     case 4:
+                         player_1 = new player(1,10,3);
+                         player_2 = new player(2,10,3);
+                         player_3 = new player(3,10,3);
+                         player_4 = new player(4,10,3);
+                         player_1.add_neighbour(player_2,player_3,player_4);
+                         player_2.add_neighbour(player_1,player_3,player_4);
+                         player_3.add_neighbour(player_2,player_1,player_4);
+                         player_4.add_neighbour(player_2,player_3,player_1);
+                         internal_gamestate.add_player_to_gamestate(player_1);
+                         internal_gamestate.add_player_to_gamestate(player_2);
+                         internal_gamestate.add_player_to_gamestate(player_3);
+                         internal_gamestate.add_player_to_gamestate(player_4);
+                         break;
+                 }
+
+                 internal_gamestate.players[0].draw(4);
+             }
+
+             setup_game_objects(2);
+
+             card_1.addEventListener("click",set_card_choice.bind(null,1));
+             card_2.addEventListener("click",set_card_choice.bind(null,2));
+             card_3.addEventListener("click",set_card_choice.bind(null,3));
+             card_4.addEventListener("click",set_card_choice.bind(null,4));
+             card_5.addEventListener("click",set_card_choice.bind(null,5));
+             card_6.addEventListener("click",set_card_choice.bind(null,6));
+             card_7.addEventListener("click",set_card_choice.bind(null,7));
+             card_8.addEventListener("click",set_card_choice.bind(null,8));
+             card_9.addEventListener("click",set_card_choice.bind(null,9));
+             card_10.addEventListener("click",set_card_choice.bind(null,10));
+             choice_1.addEventListener("click",internal_gamestate.current_player.play_card.bind(null,0,card_choice));
+             choice_2.addEventListener("click",internal_gamestate.current_player.play_card.bind(null,1,card_choice));
+             choice_3.addEventListener("click",internal_gamestate.current_player.play_card.bind(null,2,card_choice));
+             choice_4.addEventListener("click",internal_gamestate.current_player.play_card.bind(null,3,card_choice));
+             choice_5.addEventListener("click",internal_gamestate.current_player.play_card.bind(null,4,card_choice));
+
+             function switch_ui (number) {
+                 if (number === 0) {
+                     health_2.innerText = internal_gamestate.players[0].player_health;
+                     armor_2.innerText = internal_gamestate.players[0].player_shield;
+                     energy_2.innerText = internal_gamestate.players[0].player_energy;
+                     deck_2.innerText = internal_gamestate.players[0].player_deck.length;
+                     health_1.innerText = internal_gamestate.players[1].player_health;
+                     armor_1.innerText = internal_gamestate.players[1].player_shield;
+                     energy_1.innerText = internal_gamestate.players[1].player_energy;
+                     deck_1.innerText = internal_gamestate.players[1].player_deck.length;
+                     document.getElementById("topPortrait").src = "chillipro.png";
+                     document.getElementById("bottomPortrait").src ="Vectorpro.png"; 
+                 }
+
+                 if (number === 1) {
+                     health_2.innerText = internal_gamestate.players[1].player_health;
+                     armor_2.innerText = internal_gamestate.players[1].player_shield;
+                     energy_2.innerText = internal_gamestate.players[1].player_energy;
+                     deck_2.innerText = internal_gamestate.players[1].player_deck.length;
+                     health_1.innerText = internal_gamestate.players[0].player_health;
+                     armor_1.innerText = internal_gamestate.players[0].player_shield;
+                     energy_1.innerText = internal_gamestate.players[0].player_energy;
+                     deck_1.innerText = internal_gamestate.players[0].player_deck.length;
+                     document.getElementById("topPortrait").src = "Vectorpro.png";
+                     document.getElementById("bottomPortrait").src ="chillipro.png"; 
+
+                 }
+             }
+             function render_player_hand () {
+                 let i = 0;
+                 len =  internal_gamestate.current_player.player_hand.length;
+                 for (i = 0; i < len; i++) {
+                     card_hand[i].style.backgroundImage = internal_gamestate.current_player.player_hand;
+                 }
+             }
+
+             
+             let easy_temp = internal_gamestate.flip_coin();
+             internal_gamestate.players[0].draw(4);
+             internal_gamestate.players[1].draw(4);
+
+
+             function run_game() {
+                 let temp = internal_gamestate.det_current_player();
+                 internal_gamestate.set_current_player(internal_gamestate.players[temp]);
+                 internal_gamestate.players[0].draw(1);
+                 internal_gamestate.current_player.player_energy += 1;
+                 switch_ui(internal_gamestate.turn_num % 2);
+                 render_player_hand();
+                 internal_gamestate.turn_num++;
+             }
+             switch_ui(easy_temp);
+             run_game();
+             let turn_time = setInterval(() => run_game(),30000);
+
+                 // here is essentially the entirety of how the game should run.
+                 // from here on, we need to link the DOM elements that display information to the infromation rerieved within  "value"
+                 // WHAT WE NEED:
+                 // Every relevant players health, shield, armor, deck, card_hand, energy
+                 // accessed by accessing player object
+                 // howewver they are displayed in the DOCUMENT
+                 // every method which works on the above, allowing us to operate the game
+                 // bundled in to the player object
+                 // the doms of the ui buttons which allow the player to play the game
+                 // at the end we we write
+                 // game over boolean: received by the back  end, stating that the game has finished
+
+            </script>
+        </body>
+</html>

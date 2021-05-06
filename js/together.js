@@ -10,6 +10,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+// format dn, with n for representing th enumber deck you want
 
 //below lists the functions used to generate game objects, like cards, the gamestate, decks and so on
 var gamestate = /** @class */ (function () {
@@ -18,23 +19,34 @@ var gamestate = /** @class */ (function () {
         this.turn_num = 0;
         this.num_players = num_players;
         this.game = game_string;
+        this.current_player = null;
     }
 
     gamestate.prototype.player_is_kill = function (player) {
-        this.players["delete"](player);
+       this.players["delete"](player);
     };
+
     gamestate.prototype.add_player_to_gamestate = function (add_player) {
         this.players.push(add_player);
     };
 
-    gamestate.prototype.access_player = function (player) {
-        let ret_obj = null;
-        players.forEach( function(item,array) {
-            if (item === player)
-                ret_obj = item;
-        });
-        return ret_obj;
+    gamestate.prototype.get_current_player = function () {
+        return this.current_player;
     };
+
+    gamestate.prototype.set_current_player = function (player) {
+        this.current_player = player;
+    };
+
+    gamestate.prototype.flip_coin = function () {
+        let temp = Math.floor(Math.random() * 2);
+        return temp;
+    };
+    gamestate.prototype.det_current_player = function() {
+        let temp = this.turn_num % this.num_players;
+        return temp;
+    };
+
     return gamestate;
 }());
 // cede control
@@ -52,7 +64,7 @@ var player = /** @class */ (function () {
     function player(num, health, neighbours) {
         //new arrays for hand and deck
         this.player_hand = [];
-        this.neighbours =[];
+        this.neighbours = [];
         this.player_number = num;
         this.player_health = health;
         this.player_energy = 0;
@@ -71,26 +83,26 @@ var player = /** @class */ (function () {
             .then(function (result) {
                 temp = Object.values(result)[0];
                 tempArray = new Array(20);
-                tempArray[0] = new card(temp.c1);
-                tempArray[1] = new card(temp.c2);
-                tempArray[2] = new card(temp.c3);
-                tempArray[3] = new card(temp.c4);
-                tempArray[4] = new card(temp.c5);
-                tempArray[5] = new card(temp.c6);
-                tempArray[6] = new card(temp.c7);
-                tempArray[7] = new card(temp.c8);
-                tempArray[8] = new card(temp.c9);
-                tempArray[9] = new card(temp.c10);
-                tempArray[10] = new card(temp.c11);
-                tempArray[11] = new card(temp.c12);
-                tempArray[12] = new card(temp.c13);
-                tempArray[13] = new card(temp.c14);
-                tempArray[14] = new card(temp.c15);
-                tempArray[15] = new card(temp.c16);
-                tempArray[16] = new card(temp.c17);
-                tempArray[17] = new card(temp.c18);
-                tempArray[18] = new card(temp.c19);
-                tempArray[19] = new card(temp.c20);
+                tempArray[0] = new card(temp.c1,"url('wooloo.png')");
+                tempArray[1] = new card(temp.c2, "url('bonk.png')");
+                tempArray[2] = new card(temp.c3,"url('candy.png')");
+                tempArray[3] = new card(temp.c4,"url('Castel.png')");
+                tempArray[4] = new card(temp.c5,"url('free.png')");
+                tempArray[5] = new card(temp.c6,"url('Mate.png')");
+                tempArray[6] = new card(temp.c7,"url('monstar.png')");
+                tempArray[7] = new card(temp.c8,"url('pain.png')");
+                tempArray[8] = new card(temp.c9,"url('potion.png')");
+                tempArray[9] = new card(temp.c10,"url('rest.png')");
+                tempArray[10] = new card(temp.c11,"url('wooloo.png')");
+                tempArray[11] = new card(temp.c12,"url('bonk.png')");
+                tempArray[12] = new card(temp.c13,"url('candy.png')");
+                tempArray[13] = new card(temp.c14,"url('Castel.png')");
+                tempArray[14] = new card(temp.c15,"url('free.png')");
+                tempArray[15] = new card(temp.c16,"url('Mate.png')");
+                tempArray[16] = new card(temp.c17,"url('monstar.png')");
+                tempArray[17] = new card(temp.c18,"url('pain.png')");
+                tempArray[18] = new card(temp.c19,"url('potion.png')");
+                tempArray[19] = new card(temp.c20,"url('rest.png')");
                 j = 0;
                 // the fisher-yates shuffle
                 for (i = 0; i < 20; i++) {
@@ -104,21 +116,26 @@ var player = /** @class */ (function () {
             });
     };
     player.prototype.add_neighbour = function (player) {
-        neighbours.push(player); 
+        this.neighbours.push(player); 
     };
     player.prototype.damage = function (target_num, amount) {
-        target.take_damage(amount);
+        this.neighbours[0].take_damage(amount);
     };
     player.prototype.energy = function (amount) {
         this.player_energy += amount;
     };
     
     player.prototype.draw = function (amount) {
-        while (amount != 0 || this.player_hand.length <= 8) {
-            this.player_hand.push(this.player_deck.pop());
-            amount--;
+        let i = 0;
+        let temp = null;
+        for (i = 0; i < amount; i++) {
+            temp = this.player_deck.pop();
+            console.log(temp);
+            this.player_hand.push(temp);
         }
     };
+
+
     player.prototype.heal = function (amount) {
         if (((this.player_health + amount % 10)) == 0) {
             this.player_health = 10;
@@ -146,12 +163,12 @@ var player = /** @class */ (function () {
        }
     };
 
-    player.prototype.play_card = function (action_num,card,target) {
+    player.prototype.play_card = function (action_num,card) {
         if(this.player_energy > 0){
             this.player_energy--;
             switch (action_num) {
             case 0:
-                player.damage(target,card.card_dmg_val,target);
+                player.damage(card.card_dmg_val);
             case 1:
                 player.heal(card.card_heal_val);
             case 2:
@@ -170,7 +187,7 @@ var player = /** @class */ (function () {
 }());
 
 var card = /** @class */ (function () {
-    function card(card_object) {
+    function card(card_object,card_art_str) {
         keys = Object.keys(card_object);
         values = Object.values(card_object);
         length = keys.length;
@@ -186,14 +203,12 @@ var card = /** @class */ (function () {
              } else if (keys [i] === "heal") {
                  this.card_heal_val = values[i];
              }
+            this.card_art = card_art_str;
         }
     }
     return card;
 }());
 
-function add_player_to_gamestate(add_player) {
-    this.players.push(add_player);
-}
 // code control
 // accepts a gamestate, and a player
 // does a bunch of front-end stuff

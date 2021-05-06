@@ -1,220 +1,275 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <title>Chaos Critters</title>
+        <link rel="stylesheet" href="sty.css">
+		    <link rel="stylesheet" href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+         /* 
+            h1{
+            font-size: 120rem;
+            } 
+          */
+        </style>
+    </head>
+    
+    <body>
 
-    <title>Welcome to Firebase Hosting</title>
-        <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-      <button id ="test"> Get </button>
+        <!--header -->
+        <div style="background-color: #212121;">
+            <div class = "container-fluid">
+                <div class = "row ">
+                    <div class="col-2" ><img class = "logo1" src= "logo.png"></div>
+                    <div class="col-8" ><div class = "title">CHAOS CRITTERS</div></div>
+                    <div class="col-2" ><img class = "logo2" src= "logo.png"></div>
 
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-functions.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
-    <script src="together.js"
-    <script defer>
+                </div>
 
-     const firebaseConfig = {
-         apiKey: "AIzaSyBynxk4Jce8wObcpwfL_ngvV2IVaBmQvFY",
-         authDomain: "ourgame-fdad7.firebaseapp.com",
-         databaseURL: "https://ourgame-fdad7.firebaseio.com",
-         projectId: "ourgame-fdad7",
-         storageBucket: "ourgame-fdad7.appspot.com",
-         messagingSenderId: "837080877425",
-         appId: "1:837080877425:web:512dadcc82cc6fceee8ed0"
-     };
+            </div>
+            <!-- -->
+            <!--credits-->
+            <div class = "container-fluid">
+                <div class ="row">
+                    <div class = "col-md-3, subtitle">A game by:</div>
+                </div>
+                <div class = "row">
+                    <div class = "col-2, subtitle">Conor O'Boyle</div>
+                    <div class = "col-1"></div>
+                    <div class = "col-2, subtitle">Eoin Clarke</div>
+                    <div class = "col-1"></div>
+                    <div class = "col-2, subtitle">Jack Neeson</div>
+                    <div class = "col-1"></div>
+                    <div class = "col-2, subtitle">Liam Murray</div>
+                </div>
+            </div>
+            <!-- fontsize needs to be larger, maybe 15px? -->
 
-     firebase.initializeApp(firebaseConfig);
-     let db = firebase.database();
-     // this is not the actual root of the database tree
-     // but for our purposes it is
-     let games_ref = db.ref('/games');
-     let deck_ref = db.ref('/decks/');
+            <div class = "container-fluid">
+                <div class = "row">
+                    <div class = "col-3"></div>
+                    <div class = "col-4, card, bg-dark" style="width: 25rem;">
+                        <image class = " card-img-top" src = "chillipro.png">
+                            <div class="card-body">
+                                <h5 class="card-title, text-info">Meet Chilli</h5>
+                                <p class="card-text bodytext, text-warning" >This is the adorable penguin Chilli, Coming from the coldest rock in the Atlantic Ocean. He wages war on others for his precious soup.</p>
+                            </div>  
+                    </div>
+                    
+                    <div class = "col-1"></div>
+                    <div class = "col-4, card, bg-dark" style="width: 25rem;"><image class = " card-img-top" src = "Vectorpro.png">
+                        <div class="card-body">
+                            <h5 class="card-title, text-danger">Welcome Vector</h5>
+                            <p class="card-text bodytext, text-warning" >
+                                Meet Vector, a dasterdly little raccoon that causes more trouble than he's worth. With the help of his quick witt and some really good luck, he trys to take the world's soup.
+                            </p>
+                        </div>  
+                    </div>
 
-     // writes to database
-     // last part of the returned string contains the number of players as the last char in the string
-function init_game (number_players) {
-         let new_game_entry = games_ref.push();
-         let numb = number_players.toString();
-    let reg_backslash = RegExp("/");
-    let game_ref = new_game_entry.toString().split(reg_backslash).pop();
+                    
+                </div>
+            </div>
+            <!--rules-->
+            <div class = "container-fluid">
+                <div class = "row">
+                    <div class = "col-2"></div>
+                    <div class = "col-8"><image class = "rules" src = "gray2.png"></image></div>
+                    <div class = "col-2"></div>
+                </div>
+            </div>
+            <!---->
+            <div class = "container-fluid">
+                <div class = "row ">
+                    <div class = "col-5"></div>
+                    <div class = "col-md-4">
+                        <a href="https://ourgame-fdad7.web.app/gameBoard.html" target="_blank"id="start_game" class="btn btn-danger btn-lg active, butsize"  aria-pressed="true"><p class = "buttontxt">Play</p></a>
 
-    switch (number_players) {
-    case (( number_players <= 1) || (number_players > 4)):
-        game_ref = "too large or too small insert between 2 - 4players";
-        break;
+                    </div>
+                </div>
+            </div>
 
-    case 2:
+            <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-functions.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+            <script src="together.js"></script>
+            <script defer>
+             let player_select_count = 0;
+             let db = firebase.database();
+             let functions = firebase.functions();
+             // this is not the actual root of the database tree
+             // but for our purposes it isA
+             let games_ref = db.ref('/games');
+             let deck_ref = db.ref('/decks/');
 
-        new_game_entry.set({
-            gameState: {
-                state : "lobby"
-            },
+             // writes to database
+             // last part of the returned string contains the number of players as the last char in the string
+             function init_game_firebase (number_players) {
+                 let new_game_entry = games_ref.push();
+                 let numb = number_players.toString();
+                 let reg_backslash = RegExp("/");
+                 let game_ref = new_game_entry.toString().split(reg_backslash).pop();
 
-            players: {
-                player_1: {
-	                  player_number : '1',
-	                  player_health : '10',
-	                  player_energy :'1',
-	                  player_alive : 'alive',
-                    player_skin : 0
+                 switch (number_players) {
+                     case (( number_players <= 1) || (number_players > 4)):
+                         game_ref = "too large or too small insert between 2 - 4players";
+                         break;
 
-                },
-                player_2: {
-	                  player_number : '2',
-	                  player_health : '10',
-	                  player_energy :'1',
-	                  player_alive : 'alive',
-                    player_skin : 0
-                }
+                     case 2:
 
-            }
-        });
-          break;
+                         new_game_entry.set({
+                             gameState: {
+                                 state : "lobby"
+                             },
 
-    case 3:
-         new_game_entry.set({
-             gameState: {
-                 state : "lobby"
-             },
+                             players: {
+                                 player_1: {
+	                                   player_number : '1',
+	                                   player_health : '10',
+	                                   player_energy :'1',
+	                                   player_alive : 'alive',
+                                     player_skin : 0
 
-             players: {
-                 player_1: {
-	                   player_number : '1',
-	                   player_health : '10',
-	                   player_energy :'1',
-	                   player_alive : 'alive',
-                     player_skin : 0
+                                 },
+                                 player_2: {
+	                                   player_number : '2',
+	                                   player_health : '10',
+	                                   player_energy :'1',
+	                                   player_alive : 'alive',
+                                     player_skin : 0
+                                 }
 
-                    },
-             player_2: {
-	               player_number : '2',
-	               player_health : '10',
-	               player_energy :'1',
-	               player_alive : 'alive',
-                 player_skin : 0
+                             }
+                         });
+                         break;
 
-             },
-             player_3: {
-	               player_number : '3',
-	               player_health : '10',
-	               player_energy :'1',
-	               player_alive : 'alive',
-                 player_skin : 0
+                     case 3:
+                         new_game_entry.set({
+                             gameState: {
+                                 state : "lobby"
+                             },
 
+                             players: {
+                                 player_1: {
+	                                   player_number : '1',
+	                                   player_health : '10',
+	                                   player_energy :'1',
+	                                   player_alive : 'alive',
+                                     player_skin : 0
+
+                                 },
+                                 player_2: {
+	                                   player_number : '2',
+	                                   player_health : '10',
+	                                   player_energy :'1',
+	                                   player_alive : 'alive',
+                                     player_skin : 0
+
+                                 },
+                                 player_3: {
+	                                   player_number : '3',
+	                                   player_health : '10',
+	                                   player_energy :'1',
+	                                   player_alive : 'alive',
+                                     player_skin : 0
+
+                                 }
+                             }
+                         });
+                         break;
+
+                     case 4:
+                         new_game_entry.set({
+                             gameState: {
+                                 state : "lobby"
+                             },
+                             players: {
+                                 player_1: {
+	                                   player_number : '1',
+	                                   player_health : '10',
+	                                   player_energy :'1',
+	                                   player_alive : 'alive',
+                                     player_skin : 0
+                                 },
+                                 player_2: {
+	                                   player_number : '2',
+	                                   player_health : '10',
+	                                   player_energy :'1',
+	                                   player_alive : 'alive',
+                                     player_skin : 0
+
+                                 },
+                                 player_3: {
+	                                   player_number : '3',
+	                                   player_health : '10',
+	                                   player_energy :'1',
+	                                   player_alive : 'alive',
+                                     player_skin : 0
+
+                                 },
+                                 player_4: {
+	                                   player_number : '4',
+	                                   player_health : '10',
+	                                   player_energy :'1',
+	                                   player_alive : 'alive',
+                                     player_skin : 0
+                                 }
+                             }
+                         });
+                         break;
+                 }
+                 return (game_ref.concat(numb))
              }
-          }
-         });
-        break;
+             // add_player is best used to configure what skin a player will choose
+             // at the selection screen
 
-    case 4:
-        new_game_entry.set({
-             gameState: {
-                 state : "lobby"
-             },
-             players: {
-                 player_1: {
-	                   player_number : '1',
-	                   player_health : '10',
-	                   player_energy :'1',
-	                   player_alive : 'alive',
-                     player_skin : 0
-             },
-             player_2: {
-	               player_number : '2',
-	               player_health : '10',
-	               player_energy :'1',
-	               player_alive : 'alive',
-                 player_skin : 0
+             let curr_game = init_game_firebase(2);
 
-             },
-             player_3: {
-	               player_number : '3',
-	               player_health : '10',
-	               player_energy :'1',
-	               player_alive : 'alive',
-                 player_skin : 0
+             document.getElementById("choice_1").addEventListener("click",choose_skin_one.bind(null,player_select_count));
+             document.getElementById("choice_2").addEventListener("click",choose_skin_two.bind(null,player_select_count));
 
-             },
-             player_4: {
-	               player_number : '4',
-	               player_health : '10',
-	               player_energy :'1',
-	               player_alive : 'alive',
-                 player_skin : 0
-             }
-         }
-        });
-             break;
-     }
-         return (game_ref.concat(numb))
-}
-// add_player is best used to configure what skin a player will choose
-// at the selection screen
-
-     function add_player (game,p_number,skin) {
-         let lengthref = (game.length - 1);
-         game = game.substring(0,lengthref);
-         let game_ref = db.ref('/games' + game + '/' + 'players/' + 'player_' + p_number);
-         let player_data = {
-             player_skin : skin
-         };
-    let check_update = game_ref.update(player_data);
-    return check_update;
-     }
-
-        function start_game(game) {
-        // this assumes that all players have had
-            // their skins selected
-            let lengthref = (game.length - 1);
-            game = game.substring(0,lengthref);
-        let game_ref = db.ref("/games/" + game.toString());
-        let gamestate_ref = game_ref.child("gameState/state");
-        gamestate_ref.set("in_progress");
-        // the ms argument for setInterval
-        // is the turn time
-       let turn_timer_ID = window.setInterval(run_game(game_ref),1000);
-        
+             function activate_player (game,p_number,skin) {
+                 let lengthref = (game.length - 1);
+                 game = game.substring(0,lengthref);
+                 let game_ref = db.ref('/games' + game + '/' + 'players/' + 'player_' + p_number);
+                 let player_data = {
+                     "player_skin" : skin
+                 };
+                 let check_update = game_ref.update(player_data);
+                 return check_update;
              }
 
-     function run_game(game) {
-         let lengthref = (game.length - 1);
-         let playernumb = game.charAt(lengthref +1);
-         game = game.substring(0,lengthref);
-        game.get().then((value) => {
-            // here is essentially the entirety of how the game should run.
-            // from here on, we need to link the DOM elements that display information to the infromation rerieved within  "value"
+             // format dn, with n for representing th enumber deck you want
 
-            // WHAT WE NEED:
-            // Every relevant players health, shield, armor, deck, card_hand, energy
-            // howewver they are displayed in the DOCUMENT
-            // every method which works on the above, allowing us to operate the game
-            // the doms of the ui buttons which allow the player to play the game
-            // at the end we we write
-            // game over boolean: received by the back  end, stating that the game has finished
-                 });
+             function choose_skin_one (p_numb) {
+                 document.getElementById("choice_1").setAttribute("disabled",true);
+                 activate_player(curr_game,(p_numb + 1),1);
+                 player_select_count++;
              }
-     function end_game () {
-         clearInterval(turn_timer_ID);
-     }
-    </script>
 
-  </body>
+             function choose_skin_two (p_numb) {
+                 document.getElementById("choice_2").setAttribute("disabled",true);
+                 activate_player(curr_game,(p_numb + 1),2);
+                 player_select_count++;
+             }
+
+             function seed_storage(game) {
+                 // this assumes that all players have had
+                 // their skins selected
+                 let temp = null;
+                 localStorage.clear();
+                 let lengthref = (game.length);
+                 temp = game.substring((lengthref - 1) ,(lengthref));
+                 localStorage.setItem("player_number",temp);
+                 temp = game.substring(0,(lengthref - 1));
+                 localStorage.setItem("game_ref",temp);
+                 let game_ref = db.ref("/games/" + temp.toString());
+                 let player_ref = game_ref.child("players");
+                 let gamestate_ref = game_ref.child("gameState/state");
+                 gamestate_ref.set("in_progress");
+             }
+
+             seed_storage(curr_game);
+            </script>
+    </body>
 </html>

@@ -1,0 +1,123 @@
+@font-face { font-family: thebreath; src: url('TheWild.otf'); }
+
+
+.table {
+
+	width:100%;
+}
+
+.title {
+	
+	color: #C9AB05;
+	font-size: 120px;
+	margin-bottom: 0px;
+	
+	text-align: center;
+	font-family: thebreath, sans-serif;
+	border : 0px solid;
+	/*font-family: Brush Script MT;*/
+
+}
+.subtitle
+{
+color: #C9AB05;
+font-size: 15px;
+margin-bottom: 0px;
+left : 530px;
+
+font-family: thebreath;
+position: relative;
+text-align: center;
+border : 0px solid;
+}
+.logo1
+{
+    width: 160px;
+    position: relative;
+	left : 370px;
+}
+.logo2
+{
+    width: 160px;
+    position: relative;
+	right: 245px;
+}
+.rec {
+   position: relative;
+   width:100px;
+   height:auto;
+   left: 260px;
+  
+  }
+  .rec2{
+    position: relative;
+    width:466px;
+    height:auto;
+    left: 50px;
+   }
+
+.buttonshape{
+    width: 250px;
+    position: relative;
+    left: 130px;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.body{
+
+    background-color: #212121;
+}
+.con{
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 375px;
+    right: 0;
+    height: 600px;
+    width: 320px;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 375px;
+    right: 0;
+    height: 600px;
+    width: 320px;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+}
+.rec:hover .overlay {
+    opacity: .7;
+  }
+
+.rules{
+    position: relative;
+    width: 1100px;
+    height: auto;
+
+    left: 50px;
+
+}
+.butsize{
+    position: relative;
+    width: 400px;
+    height: 200px;
+    right: 70px;
+
+}
+.buttontxt{
+    position: absolute;
+    top: 50%;
+    left: 200px;
+    transform: translate(-50%, -50%);
+    font-size: 10rem;
+    color: #C9AB05;
+    font-family: thebreath;
+}
