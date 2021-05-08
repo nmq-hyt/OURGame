@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+    <html>
+            <script src="turn.js"></script>
+        <body>
+            <p id="turnnum">Turn 1</p>
+            <p id="turnstatus">Your Turn</p>
+            <p id="enemyhp">Enemy Health: 10</p>
+            <p id="enemyshields">Enemy Shields: None</p>
+            <p id="enemyhandsize">Enemy Hand Size: 3</p>
+            <p id="enemyenergy">Enemy Energy: 1</p>
+            <br>
+            <p id="playerhp">Player Health: 7</p>
+            <p id="playershields">Player Shields: None</p>
+            <p id="playerhandsize">Player Hand Size: 3</p>
+            <p id="playerenergy">Player Energy: 1</p>
+
+            <p>Card Effect:
+                <button onclick="playcard(1)">Attack</button>
+                <button onclick="playcard(2)">Health</button>
+                <button onclick="playcard(3)">Draw</button>
+                <button onclick="playcard(4)">Energy</button>
+                <button onclick="playcard(5)">Shield</button>
+                <button onclick="playcard(6)">Error Test</button>
+            </p>
+            
+            <p>Card Double Effect:
+                <button onclick="wip()">Attack + Health</button>
+                <button onclick="wip()">Attack + Draw</button>
+                <button onclick="wip()">Attack + Energy</button>
+                <button onclick="wip()">Attack + Shield</button>
+                <button onclick="wip()">Health + Draw</button>
+                <button onclick="wip()">Health + Energy</button>
+                <button onclick="wip()">Health + Shield</button>
+                <button onclick="wip()">Draw + Energy</button>
+                <button onclick="wip()">Draw + Shield</button>
+                <button onclick="wip()">Energy + Shield</button>
+            </p>
+            <p><button onclick="end()">End Turn</button></p>
+        </body>
+    </html>
